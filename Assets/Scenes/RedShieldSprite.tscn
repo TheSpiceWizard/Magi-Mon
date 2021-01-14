@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Scenes/ShieldSprite.tscn" type="PackedScene" id=2]
+
+[node name="ShieldSprite" instance=ExtResource( 2 )]
+modulate = Color( 0.823529, 0.105882, 0.105882, 0.439216 )

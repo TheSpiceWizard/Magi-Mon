@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Cursor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Transition.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Board.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CameraControl.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Sprites/Portrait.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Themes/ButtonTheme.tres" type="Theme" id=6]
+[ext_resource path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[node name="Game" type="Node2D"]
+
+[node name="Board" parent="." instance=ExtResource( 3 )]
+
+[node name="Cursor" parent="." instance=ExtResource( 1 )]
+frame = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color( 0.941176, 0.741176, 0.741176, 1 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 544.108
+margin_top = -496.315
+margin_right = 622.108
+margin_bottom = -416.315
+rect_pivot_offset = Vector2( 318.208, -79.6422 )
+texture = ExtResource( 5 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 23.6575
+margin_top = -95.8275
+margin_right = 101.658
+margin_bottom = -15.8275
+rect_pivot_offset = Vector2( 318.208, -79.6422 )
+texture = ExtResource( 5 )
+stretch_mode = 5
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Transition" parent="CanvasLayer" instance=ExtResource( 2 )]
+visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -121.106
+margin_top = 443.214
+margin_right = 518.894
+margin_bottom = 487.214
+theme = ExtResource( 6 )
+custom_fonts/font = SubResource( 1 )
+text = "Turn: 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 320, 256 )
+current = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+script = ExtResource( 4 )

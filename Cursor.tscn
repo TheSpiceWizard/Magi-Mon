@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Sounds/Click.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/UI/MovementOverlay.png" type="Texture" id=2]
+[ext_resource path="res://Cursor.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[node name="Cursor" type="AnimatedSprite"]
+position = Vector2( 32, 32 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 4 )
+playing = true
+offset = Vector2( 16, 16 )
+script = ExtResource( 3 )
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -16, -16 )
+scale = Vector2( 0.5, 0.5 )
+stream = ExtResource( 1 )
+pitch_scale = 1.5
